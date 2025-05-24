@@ -1,0 +1,51 @@
+{
+  "name": "chatbot",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "static-site": "npx http-server ./static-site -p 4201",
+    "chatbot-app": "ng serve chatbot-app",
+    "build": "ng build",
+    "build-chatbot-app": "ng build chatbot-app --configuration production",
+    "copy-zone": "cp node_modules/zone.js/bundles/zone.umd.min.js static-site/ && mv static-site/zone.umd.min.js static-site/zone.min.js",
+    "copy-chatbot": "cp dist/chatbot/chatbot-widget.js static-site/ && cp dist/chatbot/chatbot-widget.js projects/chatbot-app/public/chatbot-widget.js",
+    "copy-all": "npm run copy-zone && npm run copy-chatbot",
+    "clean-chatbot": "rimraf dist/chatbot/*",
+    "install": "npm run clean-chatbot && ng build chatbot --configuration production --output-hashing=none && npm run copy-all"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^19.0.0",
+    "@angular/compiler": "^19.0.0",
+    "@angular/core": "^19.0.0",
+    "@angular/elements": "^19.2.13",
+    "@angular/forms": "^19.0.0",
+    "@angular/platform-browser": "^19.0.0",
+    "@angular/platform-browser-dynamic": "^19.0.0",
+    "@angular/router": "^19.0.0",
+    "@webcomponents/custom-elements": "^1.6.0",
+    "document-register-element": "^1.14.10",
+    "ngx-build-plus": "^19.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-builders/custom-webpack": "^19.0.1",
+    "@angular-devkit/build-angular": "^19.0.2",
+    "@angular/cli": "^19.0.2",
+    "@angular/compiler-cli": "^19.0.0",
+    "@types/jasmine": "~5.1.0",
+    "http-server": "^14.1.1",
+    "jasmine-core": "~5.4.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "ng-packagr": "^19.2.2",
+    "rimraf": "^5.0.10",
+    "typescript": "~5.6.2"
+  }
+}
