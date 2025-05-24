@@ -12,7 +12,8 @@
     "copy-chatbot": "cp dist/chatbot/chatbot-widget.js static-site/ && cp dist/chatbot/chatbot-widget.js projects/chatbot-app/public/chatbot-widget.js",
     "copy-all": "npm run copy-zone && npm run copy-chatbot",
     "clean-chatbot": "rimraf dist/chatbot/*",
-    "install": "npm run clean-chatbot && ng build chatbot --configuration production --output-hashing=none && npm run copy-all"
+    "install": "npm run clean-chatbot && ng build chatbot --configuration production --output-hashing=none && npm run copy-all",
+    "build-all": "npm run install && npm run build-chatbot-app"
   },
   "private": true,
   "dependencies": {

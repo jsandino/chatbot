@@ -43,4 +43,5 @@ Thumbs.db
 
 # Generated static files
 /static-site/*.js
-/public/chatbot-widget.js
+/projects/chatbot-app/public/chatbot-widget.js
+
